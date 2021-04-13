@@ -12,12 +12,16 @@ import java.nio.file.Paths;
 
 @CrossOrigin("*")
 @RestController
+@RequestMapping("/room")
 public class RoomTypeRestController {
     private RoomRepository roomRepository;
 
+
     public RoomTypeRestController(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
+
     }
+
 
     @GetMapping(path = "/photoRoom/{id}", produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] getPhoto(@PathVariable("id") Long id) throws Exception {
@@ -32,4 +36,6 @@ public class RoomTypeRestController {
         Files.write(Paths.get(System.getProperty("user.home") + "/kchome/rooms/" + r.getPhotoName()), file.getBytes());
         roomRepository.save(r);
     }
+
+
 }

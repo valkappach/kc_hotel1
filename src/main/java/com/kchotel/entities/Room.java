@@ -15,7 +15,7 @@ import java.io.Serializable;
 @ToString
 public class Room implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String bed;
     private String description;

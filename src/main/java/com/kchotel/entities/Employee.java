@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 public class Employee implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
@@ -17,11 +17,10 @@ public class Employee implements Serializable {
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
-    /** CONSTRUCTOR NO ARGUMENTS*/
-    public Employee() { }
-
     /** CONSTRUCTOR WITH ALL ARGUMENTS*/
-
+    public Employee() {
+    }
+    /** CONSTRUCTOR WITH ALL ARGUMENTS*/
     public Employee(Long id, String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
         this.id = id;
         this.name = name;
@@ -32,7 +31,7 @@ public class Employee implements Serializable {
         this.employeeCode = employeeCode;
     }
 
-    /** getters and setters*/
+    /**GETTERS AN SETTERS*/
 
     public Long getId() {
         return id;
@@ -90,7 +89,8 @@ public class Employee implements Serializable {
         this.employeeCode = employeeCode;
     }
 
-    /**Methode toString*/
+    /** TOSTRING */
+
     @Override
     public String toString() {
         return "Employee{" +
